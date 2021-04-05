@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable("users", {
+    await queryInterface.createTable("posts", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -14,18 +14,16 @@ module.exports = {
         allowNull: false,
         type: Sequelize.UUID,
       },
-      name: {
-        type: Sequelize.STRING,
+      user_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: "users", key: "id" },
       },
-      email: {
+      text: {
         type: Sequelize.STRING,
-        unique: true,
-        allowNull: true,
       },
-      password: {
+      file: {
         type: Sequelize.STRING,
-        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -38,7 +36,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface) => {
-    return queryInterface.dropTable("users");
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable("posts");
   },
 };
