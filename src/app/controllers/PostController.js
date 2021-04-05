@@ -34,6 +34,13 @@ class PostController {
 
     return res.json({ secure_id });
   }
+
+  async index(req, res) {
+    const { id } = req.user;
+    const posts = await Post.findAll({ where: { user_id: id } });
+
+    return res.json(posts);
+  }
 }
 
 export default new PostController();
