@@ -6,7 +6,6 @@ class Post extends Model {
     super.init(
       {
         secure_id: Sequelize.STRING,
-        user_id: Sequelize.INTEGER,
         text: Sequelize.STRING,
         file: Sequelize.STRING,
       },
@@ -19,6 +18,12 @@ class Post extends Model {
         sequelize,
       }
     );
+
+    return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
   }
 }
 export default Post;
