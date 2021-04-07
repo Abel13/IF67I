@@ -1,5 +1,6 @@
 import * as Yup from "yup";
 import User from "../models/User";
+import { Op } from "sequelize";
 
 class UserController {
   async store(req, res) {
@@ -24,10 +25,14 @@ class UserController {
 
     const { name, email, password } = req.body;
 
-    const userExists = await User.findOne({ where: { email } });
+    const userExists = await User.findOne({
+      where: {
+        [Op.or]: [{ email }, { name }],
+      },
+    });
 
     if (userExists) {
-      return res.status(400).json({ message: "Email já cadastrado!" });
+      return res.status(400).json([{ message: "Usuário já cadastrado!" }]);
     }
 
     const { secure_id } = await User.create({

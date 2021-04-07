@@ -19,6 +19,7 @@ routes.use(authMiddleware);
 
 routes.post("/posts", PostController.store);
 routes.get("/posts", PostController.index);
+routes.get("/posts/:post", PostController.show);
 routes.post("/files", upload.single("file"), FileController.store);
 
 export default routes;
