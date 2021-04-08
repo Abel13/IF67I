@@ -7,7 +7,7 @@
     "dev": "nodemon --inspect",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/server.js",
-    "migration": "npm run sequelize db:migrate"
+    "migration": "sequelize db:migrate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
