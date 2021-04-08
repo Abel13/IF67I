@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --inspect",
-    "start": "ENV_SILENT=true node nodemon",
+    "start": "nodemon",
     "test": "node ace test",
     "migrate": "ENV_SILENT=true node ace migration:run --force"
   },
