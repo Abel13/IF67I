@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon --inspect",
     "build": "sucrase ./src -d ./dist --transforms imports",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "migration": "yarn sequelize db:migrate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
