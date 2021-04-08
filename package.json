@@ -4,7 +4,10 @@
   "main": "src/server.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --inspect"
+    "dev": "nodemon --inspect",
+    "start": "ENV_SILENT=true node server.js",
+    "test": "node ace test",
+    "migrate": "ENV_SILENT=true node ace migration:run --force"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
