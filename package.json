@@ -5,9 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --inspect",
-    "start": "nodemon",
-    "test": "node ace test",
-    "migrate": "ENV_SILENT=true node ace migration:run --force"
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
