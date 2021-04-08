@@ -6,8 +6,10 @@ module.exports = {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  dialectOptions: {
+  sequelizeConfig: {
+    dialect: "postgres",
     ssl: true,
+    dialectOptions: { ssl: { require: true } },
   },
   define: {
     timestamps: true,
