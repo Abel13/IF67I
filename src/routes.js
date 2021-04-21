@@ -1,5 +1,6 @@
 import "dotenv/config";
 
+import ExpressRedisCache from "express-redis-cache";
 import { Router } from "express";
 import multer from "multer";
 import multerConfig from "./config/multer";
@@ -9,7 +10,6 @@ import SessionController from "./app/controllers/SessionController";
 import PostController from "./app/controllers/PostController";
 import FileController from "./app/controllers/FileController";
 
-import ExpressRedisCache from "express-redis-cache";
 import authMiddleware from "./app/middlewares/auth";
 import cacheConfig from "./config/redis";
 
