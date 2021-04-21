@@ -46,9 +46,9 @@ class PostController {
   async index(req, res) {
     const { id } = req.user;
     const posts = await Post.findAll({
-      // where: {
-      //   user_id: id,
-      // },
+      where: {
+        user_id: id,
+      },
       attributes: ["secure_id", "text", "file", ["created_at", "date"]],
       order: [["created_at", "DESC"]],
       include: [
